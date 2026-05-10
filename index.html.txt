@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; overflow: hidden; font-family: 'Arial', sans-serif; }
+  .screen { 
+    width: 100vw; height: 100vh; 
+    display: flex; justify-content: center; align-items: center; 
+    font-size: 80px; color: white; font-weight: bold; 
+    animation: changeColor 10s infinite; 
+  }
+  @keyframes changeColor {
+    0% { background-color: red; } 25% { background-color: red; }
+    26% { background-color: blue; } 50% { background-color: blue; }
+    51% { background-color: green; } 75% { background-color: green; }
+    76% { background-color: yellow; } 100% { background-color: yellow; }
+  }
+  .text { animation: changeText 10s infinite; }
+  @keyframes changeText {
+    0% { content: "RED"; } 25% { content: "RED"; }
+    26% { content: "BLUE"; } 50% { content: "BLUE"; }
+    51% { content: "GREEN"; } 75% { content: "GREEN"; }
+    76% { content: "YELLOW"; } 100% { content: "YELLOW"; }
+  }
+</style>
+</head>
+<body>
+  <div class="screen">
+    <div id="word">RED</div>
+  </div>
+
+  <script>
+    const wordDiv = document.getElementById('word');
+    const colors = ["RED", "BLUE", "GREEN", "YELLOW"];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % colors.length;
+      wordDiv.innerText = colors[i];
+    }, 2500);
+  </script>
+</body>
+</html>
